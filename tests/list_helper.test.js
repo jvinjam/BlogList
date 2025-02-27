@@ -60,28 +60,28 @@ describe('favorite blog', () => {
   test('of a bigger list is the blog with the most likes', () => {
     const blogs = [
       { title: 'Title a', author: 'Author a', likes: 5 },
+      { title: 'Title d', author: 'Author d', likes: 20 },
       { title: 'Title b', author: 'Author b', likes: 10 },
       { title: 'Title c', author: 'Author c', likes: 15 },
-      { title: 'Title d', author: 'Author d', likes: 20 }
     ]
 
     const result = listHelper.favoriteBlog(blogs)
     console.log('favorite blog in a big list: ', result)
-    assert.deepStrictEqual(result, blogs[3])
+    assert.deepStrictEqual(result, blogs[1])
   })
 
   test('of a list with multiple blogs with same number of likes', () => {
     const blogs = [
       { title: 'Title a', author: 'Author a', likes: 5 },
-      { title: 'Title b', author: 'Author b', likes: 10 },
-      { title: 'Title c', author: 'Author c', likes: 15 },
       { title: 'Title d', author: 'Author d', likes: 20 },
-      { title: 'Title e', author: 'Author e', likes: 20 }
+      { title: 'Title c', author: 'Author c', likes: 15 },
+      { title: 'Title e', author: 'Author e', likes: 20 },
+      { title: 'Title b', author: 'Author b', likes: 10 },
     ]
 
     const result = listHelper.favoriteBlog(blogs)
     console.log('multiple favorite blogs: ', result)
-    assert.deepStrictEqual(result, blogs[4])
+    assert.deepStrictEqual(result, blogs[3])
   }
   )
 })
@@ -154,24 +154,24 @@ describe('most likes', () => {
   test('of a bigger list is the blog with the most likes', () => {
     const blogs = [
       { title: 'Title a', author: 'Author a', likes: 5 },
-      { title: 'Title b', author: 'Author b', likes: 10 },
+      { title: 'Title b', author: 'Author b', likes: 20 },
       { title: 'Title c', author: 'Author c', likes: 15 },
-      { title: 'Title d', author: 'Author d', likes: 20 }
+      { title: 'Title d', author: 'Author d', likes: 10 }
     ]
 
     const result = listHelper.mostLikes(blogs)
     console.log('most likes in a big list: ', result)
-    assert.deepStrictEqual(result, { author: 'Author d', likes: 20 })
+    assert.deepStrictEqual(result, { author: 'Author b', likes: 20 })
   })
 
   test('of a bigger list is the blog with the most likes (author has mutiple titles)', () => {
     const blogs = [
-      { title: 'Title a', author: 'Author a', likes: 5 },
-      { title: 'Title b', author: 'Author b', likes: 10 },
-      { title: 'Title c', author: 'Author c', likes: 15 },
-      { title: 'Title d', author: 'Author d', likes: 20 },
       { title: 'Title d', author: 'Author a', likes: 20 },
+      { title: 'Title d', author: 'Author d', likes: 20 },
+      { title: 'Title b', author: 'Author b', likes: 10 },
+      { title: 'Title a', author: 'Author a', likes: 5 },
       { title: 'Title d', author: 'Author b', likes: 20 },
+      { title: 'Title c', author: 'Author c', likes: 15 },
     ]
 
     const result = listHelper.mostLikes(blogs)
