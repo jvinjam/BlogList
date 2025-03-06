@@ -48,8 +48,8 @@ describe('Viewing a specific blog', () => {
   })
 
   test('fails with statuscode 404 if blog does not exist', async () => {
-    const validNonexistingId = await helper.nonExistingId()
-    await api.get(`/api/blogs/${validNonexistingId}`)
+    const validNonExistingId = await helper.nonExistingId()
+    await api.get(`/api/blogs/${validNonExistingId}`)
       .expect(404)
   })
 
@@ -123,8 +123,8 @@ describe('Deleting a blog', () => {
   })
 
   test('fails with status code 404 if id does not exist', async () => {
-    const validNonexistingId = await helper.nonExistingId()
-    await api.delete(`/api/blogs/${validNonexistingId}`)
+    const validNonExistingId = await helper.nonExistingId()
+    await api.delete(`/api/blogs/${validNonExistingId}`)
       .expect(404)
 
     const blogsInDb = await helper.blogsInDb()
@@ -158,14 +158,14 @@ describe('Updating a blog', () => {
   })
 
   test('fails with status code 404 if id does not exist', async () => {
-    const validNonexistingId = await helper.nonExistingId()
+    const validNonExistingId = await helper.nonExistingId()
     const newBlog = {
       'title': 'Blog 3',
       'author': 'Author 3',
       'url': 'www.link3.com',
       'likes': 4
     }
-    await api.put(`/api/blogs/${validNonexistingId}`)
+    await api.put(`/api/blogs/${validNonExistingId}`)
       .send(newBlog)
       .expect(404)
   })
