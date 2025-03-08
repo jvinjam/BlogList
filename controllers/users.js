@@ -11,7 +11,6 @@ usersRouter.get('/', async (request, response) => {
 //POST a new user
 usersRouter.post('/', async (request, response) => {
   const { userName, name, password } = request.body
-  console.log(userName, ', ', name, ', ', password)
 
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(password, saltRounds)
