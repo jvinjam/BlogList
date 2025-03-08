@@ -109,7 +109,7 @@ describe('when there is initially one user in db', () => {
 
     const usersAfter = await helper.usersInDb()
     assert.strictEqual(usersAfter.length, usersBefore.length)
-    assert(result.body.error.includes('is shorter than the minimum allowed length (3)'))
+    assert(result.body.error.includes('password is shorter than the minimum allowed length (3)'))
   })
 
 })
