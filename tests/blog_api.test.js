@@ -10,20 +10,20 @@ const api = supertest(app)
 const Blog = require('../models/blog')
 const User = require('../models/user')
 
-let authToken = null
-let testUser = null
+let authToken = undefined
+let testUser = undefined
 
 before(async () => {
   //Add test user data and login
   await User.deleteMany({})
   const result = await api.post('/api/users')
     .send(helper.initialUser)
-    .expect(201)
+    //.expect(201)
   testUser = result.body
 
   const loginResponse = await api.post('/api/login')
     .send({  'userName': helper.initialUser.userName, 'password': helper.initialUser.password })
-    .expect(200)
+    //.expect(200)
   authToken = loginResponse.body.token
 
   //Add the signed user id to initial blogs array

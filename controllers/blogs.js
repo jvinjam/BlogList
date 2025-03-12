@@ -14,9 +14,6 @@ blogsRouter.get('/api/blogs', async (request, response) => {
 // POST a new blog
 blogsRouter.post('/api/blogs', async (request, response) => {
   const user = request.user
-  if (!user) {
-    return response.status(401).json({ error: 'token missing or invalid token' })
-  }
 
   const newBlog = new Blog({
     title: request.body.title,
@@ -47,9 +44,6 @@ blogsRouter.get('/api/blogs/:id', async (request, response) => {
 // DELETE single blog by id
 blogsRouter.delete('/api/blogs/:id', async (request, response) => {
   const user = request.user
-  if (!user) {
-    return response.status(401).json({ error: 'missing token or invalid token' })
-  }
 
   const blogId = request.params.id
   const blog = await Blog.findById(blogId)
@@ -83,9 +77,6 @@ blogsRouter.delete('/api/blogs/:id', async (request, response) => {
 // PUT Update single blog by id
 blogsRouter.put('/api/blogs/:id', async (request, response) => {
   const user = request.user
-  if (!user) {
-    return response.status(401).json({ error: 'missing token or invalid token' })
-  }
 
   const blogId = request.params.id
   const blog = await Blog.findById(blogId)
