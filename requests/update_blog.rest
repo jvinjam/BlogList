@@ -1,0 +1,8 @@
+PUT  http://localhost:3003/api/blogs/67d094f4e208536650e5d661
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiaWQiOiI2N2NjZjZkNjg0ZjZkN2U0M2EwNjEwZDciLCJpYXQiOjE3NDE3MjI2NzEsImV4cCI6MTc0MTcyNjI3MX0.bACv7xnS94JzOMsG7aqkzi7jOjmzv5Ldc1LEROTzDbw
+Content-type: application/json
+
+{
+    "url": "www.updatedlink.abc",
+    "likes": 30
+}
