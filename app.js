@@ -2,7 +2,6 @@ const express = require('express')
 //To eleminate try-catch blocks and use errorHandler, npm install express-async-errors and import 'express-async-errors'
 require('express-async-errors')
 const app = express()
-const cors = require('cors')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
@@ -28,7 +27,6 @@ mongoose
     logger.error('error connecting to MongoDB: ', error.message)
   })
 
-app.use(cors())
 app.use(express.static('dist'))
 app.use(express.json())
 // Middleware for logging HTTP requests
