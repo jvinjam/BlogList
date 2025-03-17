@@ -38,10 +38,10 @@ app.use(middleware.tokenExtractor)
 
 app.get('/api/blogs', blogsRouter)
 app.get('/api/blogs/:id', blogsRouter)
+app.put('/api/blogs/:id', blogsRouter)
 
 app.post('/api/blogs', middleware.userExtractor, blogsRouter)
 app.delete('/api/blogs/:id', middleware.userExtractor, blogsRouter)
-app.put('/api/blogs/:id', middleware.userExtractor, blogsRouter)
 
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)

@@ -76,16 +76,12 @@ blogsRouter.delete('/api/blogs/:id', async (request, response) => {
 
 // PUT Update single blog by id
 blogsRouter.put('/api/blogs/:id', async (request, response) => {
-  const user = request.user
+  //const user = request.user
 
   const blogId = request.params.id
   const blog = await Blog.findById(blogId)
   if (!blog || !blog.user) {
     return response.status(404).json({ error: 'blog does not exist' })
-  }
-
-  if (user._id.toString() !== blog.user._id.toString()) {
-    return response.status(401).json({ error: `user  ${user.name} is not the owner of this blog` })
   }
 
   const newBlog = {

@@ -215,7 +215,6 @@ describe('Updating a blog', () => {
     const newBlog = { ...blogToUpdate, likes: blogToUpdate.likes + 1 }
 
     const response = await api.put(`/api/blogs/${blogToUpdate.id}`)
-      .set('Authorization', `Bearer ${authToken}`)
       .send(newBlog)
       .expect(200)
     const updatedBlog = response.body
@@ -234,7 +233,6 @@ describe('Updating a blog', () => {
       'likes': 4
     }
     await api.put(`/api/blogs/${validNonExistingId}`)
-      .set('Authorization', `Bearer ${authToken}`)
       .send(newBlog)
       .expect(404)
   })
@@ -248,7 +246,6 @@ describe('Updating a blog', () => {
       'likes': 4
     }
     await api.put(`/api/blogs/${invalidId}`)
-      .set('Authorization', `Bearer ${authToken}`)
       .send(newBlog)
       .expect(400)
   })
