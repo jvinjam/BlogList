@@ -18,6 +18,8 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test node --test",
+    "build:ui": "rm -rf dist && cd ../../FullStackCourse/part5/BlogListFrontend && npm run build && cp -r dist ../../../Backend/BlogList",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "lint": "eslint ."
   },
   "dependencies": {
